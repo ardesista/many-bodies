@@ -9,4 +9,4 @@ android/build/assets
 android/build/build
 .import/
 .godot/
-.dist/
+dist/
