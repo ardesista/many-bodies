@@ -1,0 +1,11 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://d4m2ebtnqwsuf"]
+
+[ext_resource type="FontFile" uid="uid://caut5jwgp1o0s" path="res://LiberationMono-Regular.ttf" id="1_rvqow"]
+
+[resource]
+Button/font_sizes/font_size = 28
+Button/fonts/font = ExtResource("1_rvqow")
+Label/font_sizes/font_size = 28
+Label/fonts/font = ExtResource("1_rvqow")
+LineEdit/font_sizes/font_size = 28
+LineEdit/fonts/font = ExtResource("1_rvqow")

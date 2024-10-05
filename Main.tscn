@@ -1,0 +1,102 @@
+[gd_scene load_steps=3 format=3 uid="uid://58o7qkbxxb43"]
+
+[ext_resource type="Script" path="res://Main.gd" id="1_xhnug"]
+[ext_resource type="Theme" uid="uid://d4m2ebtnqwsuf" path="res://main_theme.tres" id="3_gjk4t"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_xhnug")
+metadata/_edit_vertical_guides_ = [1080.0]
+
+[node name="HUD" type="CanvasLayer" parent="."]
+process_mode = 3
+
+[node name="SeedLabel" type="Label" parent="HUD"]
+offset_left = 16.0
+offset_top = 19.0
+offset_right = 101.0
+offset_bottom = 55.0
+theme = ExtResource("3_gjk4t")
+text = "Seed:"
+
+[node name="SeedLine" type="LineEdit" parent="HUD"]
+offset_left = 111.0
+offset_top = 13.0
+offset_right = 267.0
+offset_bottom = 60.0
+theme = ExtResource("3_gjk4t")
+text = "12345678"
+placeholder_text = "Seed"
+max_length = 8
+
+[node name="GenButton" type="Button" parent="HUD"]
+offset_left = 274.0
+offset_top = 13.0
+offset_right = 428.0
+offset_bottom = 61.0
+theme = ExtResource("3_gjk4t")
+text = "Generate"
+
+[node name="RestartButton" type="Button" parent="HUD"]
+offset_left = 449.0
+offset_top = 13.0
+offset_right = 589.0
+offset_bottom = 61.0
+theme = ExtResource("3_gjk4t")
+text = "Restart"
+
+[node name="PauseButton" type="Button" parent="HUD"]
+offset_left = 596.0
+offset_top = 13.0
+offset_right = 705.0
+offset_bottom = 61.0
+theme = ExtResource("3_gjk4t")
+toggle_mode = true
+text = "Pause"
+
+[node name="PictureButton" type="Button" parent="HUD"]
+offset_left = 724.0
+offset_top = 13.0
+offset_right = 861.0
+offset_bottom = 61.0
+theme = ExtResource("3_gjk4t")
+toggle_mode = true
+text = "Picture"
+
+[node name="ExportButton" type="Button" parent="HUD"]
+offset_left = 868.0
+offset_top = 13.0
+offset_right = 992.0
+offset_bottom = 61.0
+theme = ExtResource("3_gjk4t")
+text = "Export"
+
+[node name="NLabel" type="Label" parent="HUD"]
+offset_left = 1016.0
+offset_top = 19.0
+offset_right = 1055.0
+offset_bottom = 55.0
+theme = ExtResource("3_gjk4t")
+text = "N:"
+
+[node name="NSpinBox" type="SpinBox" parent="HUD"]
+offset_left = 1057.0
+offset_top = 13.0
+offset_right = 1149.0
+offset_bottom = 60.0
+theme = ExtResource("3_gjk4t")
+min_value = 3.0
+max_value = 16.0
+value = 3.0
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2(960, 540)
+position_smoothing_enabled = true
+
+[connection signal="text_changed" from="HUD/SeedLine" to="." method="_on_seed_line_text_changed"]
+[connection signal="text_submitted" from="HUD/SeedLine" to="." method="_on_seed_line_text_submitted"]
+[connection signal="pressed" from="HUD/GenButton" to="." method="_on_gen_button_pressed"]
+[connection signal="pressed" from="HUD/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="toggled" from="HUD/PauseButton" to="." method="_on_pause_button_toggled"]
+[connection signal="toggled" from="HUD/PictureButton" to="." method="_on_picture_button_toggled"]
+[connection signal="pressed" from="HUD/ExportButton" to="." method="_on_export_button_pressed"]
+[connection signal="value_changed" from="HUD/NSpinBox" to="." method="_on_n_spin_box_value_changed"]

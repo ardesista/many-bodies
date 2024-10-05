@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://c121ekv1y2rgq"]
+
+[ext_resource type="Script" path="res://Body.gd" id="1_akn6y"]
+[ext_resource type="Texture2D" uid="uid://dv78pwdtst68y" path="res://dot15.png" id="2_m301b"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_4jr3i"]
+blend_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_u1r0c"]
+offsets = PackedFloat32Array(0, 0.195804, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="Body" type="Node2D"]
+script = ExtResource("1_akn6y")
+
+[node name="particles" type="CPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_4jr3i")
+amount = 96
+lifetime = 2.5
+texture = ExtResource("2_m301b")
+gravity = Vector2(0, 0)
+scale_amount_min = 0.18
+scale_amount_max = 0.18
+color_ramp = SubResource("Gradient_u1r0c")
+
+[node name="start_vel" type="Marker2D" parent="."]

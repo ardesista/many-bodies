@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bkhhfh1o1hu7"]
+
+[node name="ExportDialog" type="FileDialog"]
+process_mode = 3
+title = "Export picture"
+initial_position = 2
+size = Vector2i(960, 500)
+visible = true
+ok_button_text = "Save"
+access = 2
+filters = PackedStringArray("*.svg")

@@ -1,0 +1,11 @@
+__pycache__
+*.pyc
+*.pyo
+*.o
+*~
+*.swp
+android/build/.gradle
+android/build/assets
+android/build/build
+.import/
+.godot/

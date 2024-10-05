@@ -1,0 +1,66 @@
+[gd_scene load_steps=4 format=3 uid="uid://dyy0avewyilfi"]
+
+[ext_resource type="Script" path="res://Stage.gd" id="1_xondm"]
+[ext_resource type="PackedScene" uid="uid://c121ekv1y2rgq" path="res://Body.tscn" id="2_roieg"]
+[ext_resource type="Theme" uid="uid://d4m2ebtnqwsuf" path="res://main_theme.tres" id="3_g6nj4"]
+
+[node name="Stage1" type="Node2D"]
+script = ExtResource("1_xondm")
+metadata/_edit_horizontal_guides_ = [540.0]
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="TraceButton" type="Button" parent="HUD"]
+offset_left = 18.0
+offset_top = 13.0
+offset_right = 155.0
+offset_bottom = 61.0
+theme = ExtResource("3_g6nj4")
+toggle_mode = true
+text = "Trace"
+
+[node name="Body1" parent="." instance=ExtResource("2_roieg")]
+modulate = Color(1, 1, 0, 1)
+position = Vector2(960, 540)
+radius = 200.0
+color = Color(1, 1, 0, 1)
+
+[node name="particles" parent="Body1" index="0"]
+scale_amount_min = 36.0
+scale_amount_max = 36.0
+
+[node name="Body2" parent="." instance=ExtResource("2_roieg")]
+modulate = Color(0, 0.0862745, 1, 1)
+position = Vector2(-2301, 540)
+radius = 60.0
+color = Color(0, 0.0862745, 1, 1)
+
+[node name="particles" parent="Body2" index="0"]
+scale_amount_min = 10.8
+scale_amount_max = 10.8
+
+[node name="start_vel" parent="Body2" index="1"]
+position = Vector2(0, -1158)
+
+[node name="Body3" parent="." instance=ExtResource("2_roieg")]
+modulate = Color(0.709413, 0.709413, 0, 1)
+position = Vector2(-2461, 540)
+radius = 10.0
+color = Color(0.709413, 0.709413, 0, 1)
+
+[node name="particles" parent="Body3" index="0"]
+scale_amount_min = 1.8
+scale_amount_max = 1.8
+
+[node name="start_vel" parent="Body3" index="1"]
+position = Vector2(0, -1301)
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2(960, 540)
+position_smoothing_enabled = true
+
+[connection signal="toggled" from="HUD/TraceButton" to="." method="set_picture_mode"]
+
+[editable path="Body1"]
+[editable path="Body2"]
+[editable path="Body3"]
